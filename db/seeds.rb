@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+user = User.create(username: "test user", email: "foo@bar.com")
+post = Post.create(title: "test post", content: "test post content")
+category = Category.create(name: "test category")
+user.comments.build(content: "test comment content", post_id: post.id )
+post.post_categories.build(category_id: category.id)

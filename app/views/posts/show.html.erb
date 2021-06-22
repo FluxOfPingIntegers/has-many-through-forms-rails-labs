@@ -1,1 +1,11 @@
+<h1><%= @post.title %></h1>
 
+<%= form_for @post do |f| %>
+  <%= f.fields_for :comment_content, @post.comments.build do |comment_fields| %>
+  <%= comment_fields.label "Content" %><br>
+  <%= comment_fields.text_area :content %><br>
+  <%= comment_fields.collection_select :user_id, User.all, :id, :username %><br>
+  <%= comment_fields.submit %>
+  <% end %>
+
+<% end %>
